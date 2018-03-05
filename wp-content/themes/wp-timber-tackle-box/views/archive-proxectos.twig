@@ -1,0 +1,36 @@
+
+{% extends "base.twig" %}
+
+
+{% block fltr %}
+		            <div class="filtro-proyectos">
+		              	<ul>
+							{% for category in filtro_proxectos %}
+							    <li class="{{category.slug}}"><a>{{category.name}}</a></li>
+							{% endfor %}
+						</ul>
+					</div>			
+{% endblock %}
+
+{% block content %}
+	<section class="container-fluid gallery-containter">
+	    <article class="" id="projects">
+		<ul class="row grid-proyecto">
+			{% for post in posts %}
+			{% set counter = counter + 1 %}
+				{% if counter <= 6 %}
+					<li class="col-xl-6 col-lg-6 col-xs-4 proyecto tease tease-{{post.post_type}}" id="tease-{{post.ID}}">
+						{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
+					</li>
+				{% else %}
+					<li class="col-xl-3 col-lg-3 col-xs-6 proyecto tease tease-{{post.post_type}}" id="tease-{{post.ID}}">
+						{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
+					</li>
+	
+				{% endif %}
+			{% endfor %}
+
+		</ul>
+		</article>
+	</section>
+{% endblock %}

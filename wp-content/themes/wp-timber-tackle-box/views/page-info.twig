@@ -1,0 +1,53 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+{% set mail = post.get_field('email_omen') %}
+{% set telefono = post.get_field('telefono_omen') %}
+{% set col_esquerda = post.get_field('info_columna_esquerda') %}
+{% set col_dereita = post.get_field('info_columna_dereita') %}
+
+	<div class="content-wrapper info">
+		<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+			<section class="article-content">
+				<div class="article-body">
+					<div class="container">
+					<div class="row">
+						<div class="col-sm-4 col-xl-4 ">
+							{% if mail %}
+				        		<span class="mail"><a href="mailto:{{mail}}" target="_blank">{{mail}}</a></span>
+				        	{% endif %}
+							{% if telefono %}
+				        		<span class="telefono">{{telefono}}</span>
+				        	{% endif %}
+				        	{% if col_esquerda %}
+				        		<span class="col_esquerda">{{col_esquerda}}</span>
+				        	{% endif %}
+				        	<div class="redes">
+								{% include 'partials/redes.twig' %}
+							</div>
+
+						</div>
+						<div class="col-sm-8 col-xl-8">
+				        	{% if col_dereita %}
+				        	<span class="col_dereita">{{col_dereita}}</span>
+				        	{% endif %}
+
+						</div>
+					</div>
+				</div>
+	
+				</div>
+				<div class="thumbnail-info">
+					<img src="{{post.thumbnail}}" title="Hola!" class="hola" alt="hola" usemap="#Map">
+					<map name="Map" class="mapinfo" id="Map">
+				    <area class="person" alt="" title="Nico Millán<br>nico@omen.cat<br>656778899" href="mailto:nico@omen.cat" shape="poly" coords="116,452,155,378,205,339,300,339,283,301,256,234,278,131,320,93,371,104,426,192,440,235,434,284,444,331,525,358,609,429,622,532,645,646,604,700,564,721,659,749,706,787,697,862,640,895,569,856,544,910,514,941,493,945,342,944,297,895,219,895,116,874,39,613,40,549,76,540" />
+				    <area class="person" alt="" title="Arnau Abella<br>arnau@omen.cat<br>0034 675 666 211" href="mailto:arnau@omen.cat" shape="poly" coords="693,389,768,360,800,317,776,260,765,213,786,102,890,92,937,198,915,321,958,375,1063,415,1088,614,1060,738,1122,781,1152,941,701,942,697,768,675,677,650,600,632,498,666,398" />
+				    <area class="person" alt="" title="Carlos Martínez<br>carlos@omen.cat<br>0034 675 666 211" href="mailto:carlos@omen.cat" shape="poly" coords="1207,943,1182,860,1155,707,1114,680,1093,561,1103,497,1171,348,1294,312,1288,253,1230,211,1290,70,1411,53,1482,137,1486,241,1430,307,1579,374,1605,577,1619,662,1633,773,1742,870,1751,941" />
+					</map>
+				</div>
+
+			</section>
+		</article>
+	</div><!-- /content-wrapper -->
+{% endblock %}

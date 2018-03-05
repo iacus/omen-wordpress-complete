@@ -1,0 +1,32 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+{% set presentacion = post.get_field('presentacion_clientes') %}
+
+	<div class="content-wrapper info">
+		<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+			<section class="article-content">
+					<div class="container">
+					<div class="row">
+						<div class="col-xl-12 ">
+							{% if presentacion %}
+				        		<p class="presentacion-clientes margin50">{{presentacion}}</p>
+				        	{% endif %}
+							{% for cliente in clientes %}
+							    <h2 class="cliente {{cliente.slug}}">{{cliente.name}}
+							    	{% if cliente.web %}
+							    	<span class="web">
+							    		<a href="{{cliente.web}}" target="_blank">Web</a>
+							    	</span>
+							    	{% endif %}							    	
+							    </h2>
+							{% endfor %}
+						</div>
+				</div>
+	
+				</div>
+			</section>
+		</article>
+	</div><!-- /content-wrapper -->
+{% endblock %}

@@ -1,0 +1,125 @@
+{% set imaxe = post.get_field('imaxe_fondo') %}
+{% set director = post.get_field('info_proxecto_ficha_grupo_director') %}
+{% set ano = post.get_field('info_proxecto_ficha_grupo_ano') %}
+{% set cliente = post.get_field('info_proxecto_ficha_grupo_cliente') %}
+{% set tipo = post.get_field('info_proxecto_ficha_grupo_tipo_proxecto') %}
+{% set destacado = post.get_field('texto_destacado') %}
+{% set videos = post.get_field('lista_videos') %}
+{% set creditos = post.get_field('creditos_maiores') %}
+{% set galeria = post.get_field('galeria_de_imaxes') %}
+{% set ficha = post.get_field('ficha_tecnica') %}
+
+
+{% block content %}
+	
+		<article class="post-type-{{post.post_type}} {{post.slug}} hidden" id="post-{{post.ID}}">
+			<div class="content-wrapper" style="background-color:{{post.get_field('color_fondo')}}">
+			<div class="top-nav-proyecto fixed"><a class="close-project" >Close</a></div>
+			<!-- Cabecera -->
+			<section class="cabecera-proyecto fixed" style="background-image:url('{{TimberImage(imaxe).src('omen-cabeceira')}}');">
+		        <h1 class="titulo-proyecto">{{post.title}}</h1>
+				<div class="info-proyecto font25">
+					
+					{% if director %}
+		        	<span class="director">{{director.name}}</span>
+		        	{% endif %}
+		        	{% if ano %}
+		        	<span class="ano">{{ano}}</span>
+		        	{% endif %}
+		        	{% if cliente %}
+		        	<span class="cliente">{{cliente.name}}</span>
+		        	{% endif %}
+		        	{% if tipo %}
+		        	<span class="tipo-proxecto">{{tipo.name}}</span>
+		        	{% endif %}
+			  	</div>
+		    </section>
+
+			<section class="container" id="content">
+
+				{% if destacado %}
+				<!-- Sinopse -->
+			    <article class="texto-proxecto">
+			          <div class="row">
+			            <h2>{{destacado}}</h2>
+			          </div>
+		        </article>
+		        {% endif %}
+
+				{% if videos %}
+		        <!-- Videos -->
+		        <article class="videos-proxecto">
+		          	<div class="row">
+		            	<ul class="col-12">
+							{% for item in videos %}
+			            		<li>
+				             		<p class="titulo-video">{{item.titulo_video}}</p>
+				              		{{item.embed_video}}
+				              	</li>
+          				    {% endfor %}
+		            	</ul>
+		          </div>
+		        </article>
+				{% endif %}
+
+				{% if creditos %}
+				<!-- Creditos -->
+		        <article class="creditos">
+		          <div class="row">
+		            <ul class="col-sm-12 col-xl-8">
+						{% for item in creditos %}
+		              	<li class="row">
+		              		<span class="cargo col-sm-6 col-xl-6">
+								{{item.maiores_cargo}}
+		              		</span>
+		              		<span class="persoa col-sm-6 col-xl-6">
+								{{item.maiores_persoa}}
+		              		</span>
+						</li>
+						{% endfor %}
+					</ul>
+		          </div>
+		        </article>
+		        {% endif %}
+
+				{% if galeria %}
+		        <!-- Galeria de proxecto -->
+		        <div class="row">
+		          <article class="galeria-proyecto">
+					{% for image in galeria %}
+						<img class="lazy" src="img/bg.gif" data-src="{{ TimberImage(image).src('large') }}" data-src-small="{{ TimberImage(image).src('medium') }}"/>
+					{% endfor %}
+					</article>
+		        </div>
+		        {% endif %}
+
+				{% if ficha %}
+				<!-- Ficha técnica -->
+		        <article class="creditos">
+		          <div class="row">
+		            <ul class="col-sm-12 col-xl-8">
+						{% for item in ficha %}
+		              	<li class="row">
+		              		<span class="cargo col-sm-6 col-xl-6">
+								{{item.titulo_ficha}}
+		              		</span>
+		              		<span class="cargo col-sm-6 col-xl-6">
+								{{item.descripcion_ficha}}
+		              		</span>
+						</li>
+						{% endfor %}
+					</ul>
+		          </div>
+		        </article>
+		        {% endif %}
+
+		    </section><!-- /content -->
+			</div><!-- /content-wrapper -->
+		</article>
+
+
+{% endblock %}
+
+{% block footer %}
+	
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="content-wrapper">
+		<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+
+			
+
+			<!-- Info proxecto -->
+			<p>Director:{{post.get_field('info_proxecto_ficha_grupo_director').name}}</p>
+			<p>Tipo proxecto:{{post.get_field('info_proxecto_ficha_grupo_tipo_proxecto').name}}</p>
+			<p>Ano:{{post.get_field('info_proxecto_ficha_grupo_ano')}}</p>
+    		<p>Cliente:{{post.get_field('info_proxecto_ficha_grupo_cliente').title}}</p>
+
+			<!-- Galeria de proxecto -->
+			{% for image in post.get_field('galeria_de_imaxes') %}
+	    		<img src="{{ TimberImage(image) }}" />
+			{% endfor %}
+			<!-- FIN. Galeria de proxecto -->
+
+			<section class="comments">
+				<div class="respond">
+					<h3 class="h2">Comments</h3>
+					{{ comment_form }}
+				</div>
+				<div class="responses">
+					{% for cmt in post.get_comments() %}
+						{% include "comment.twig" with { comment:cmt } %}
+					{% endfor %}
+				</div>
+			</section>
+		</article>
+	</div><!-- /content-wrapper -->
+{% endblock %}

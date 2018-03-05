@@ -1,0 +1,19 @@
+{% set categorias = post.get_field('cat_proxecto') %}
+{% set cliente = post.get_field('info_proxecto_ficha_grupo_cliente') %}
+
+	{% block content %}
+			<div class="{{ categorias.slug | join(', ') }}">
+				<a class="link-proxecto" href="{{post.link}}" class="post-{{post.ID}}">
+					<img class="thumb-proxecto" src="{{ TimberImage(post.imaxe_fondo).src('omen-thumbs') }}">
+					<span class="meta-proxecto">
+						<span class="titulo-proxecto">{{post.title}}</span>
+						{% if cliente %}
+						<span class="cliente-proxecto">	 	
+							{{cliente.name}}
+						</span>
+						{% endif %}
+					</span>
+				</a>
+			</div>
+
+	{% endblock %}

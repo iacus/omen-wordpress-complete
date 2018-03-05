@@ -1,0 +1,41 @@
+<nav class="navbarPrincipal" id="navbarResponsive" role="navigation">
+<div class="container-fluid" data-toggle="sticky-onscroll">
+  <div class="row">
+    <div class="col text-left">
+      <a class="" href="{{site.link}}">{{site.name}}</a>
+    </div>
+    <div class="col d-none d-sm-block text-center">
+    	{% if is_proxectos %}
+					<div class="filtro-proyectos">
+						
+		              	<ul>
+							{% for category in filtro_proxectos %}
+							    <li class="{{category.slug}}"><a>{{category.name}}</a></li>
+							{% endfor %}
+						</ul>
+					</div>
+		{% endif %}
+    </div>
+    <div class="col text-right">
+      <ul class="nav-items">
+		{% for item in menu.get_items %}
+		<li class="nav-item {{item.classes | join(' ')}}">
+			<a class="nav-item-link" href="{{item.link}}">{{item.title}}</a>
+			{% if item.get_children %}
+				<ul class="nav nav-drop">
+				{% for child in item.get_children %}
+					<li class="nav-drop-item">
+						<a class="nav-link" href="{{child.get_link}}">{{child.title}}</a>
+					</li>
+				{% endfor %}
+				</ul>
+			{% endif %}
+		</li>
+	{% endfor %}
+	</ul>
+    </div>
+  </div>
+</div>
+</nav>
+
+<!-- /.nav-main -->

@@ -1,0 +1,12 @@
+		<p>Categoria: {{ post.terms('categoria_proxecto') | join(', ') }} </p>
+		{% if post.get_field('categoria_proxecto') %}
+			<p>Categoria: {{post.get_field('categoria_proxecto').name}}</p>
+		{% endif %}
+
+		{% if post.get_field('info_proxecto_ficha_grupo_cliente') %}
+			<p>Cliente: {{post.get_field('info_proxecto_ficha_grupo_cliente').name}}</p>
+		{% endif %}
+		{% if post.get_field('imaxe_fondo') %}
+			<img src="{{ TimberImage(post.imaxe_fondo).src('medium') }}" />
+
+		{% endif %}

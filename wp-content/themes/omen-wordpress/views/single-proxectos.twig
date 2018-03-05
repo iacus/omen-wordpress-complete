@@ -1,0 +1,151 @@
+{% extends "base.twig" %}
+
+{% block bd %}
+	<body class="{{body_class}}" data-template="base.twig" style="background-color:{{post.get_field('color_fondo')}}">
+{% endblock %}
+
+{% block header %}
+	
+{% endblock %}
+
+{% block content %}
+
+{% set imaxe = post.get_field('imaxe_fondo') %}
+{% set estado = post.get_field('info_proxecto_ficha_estado_proxecto') %}
+{% set director = post.get_field('info_proxecto_ficha_grupo_director') %}
+{% set ano = post.get_field('info_proxecto_ficha_grupo_ano') %}
+{% set cliente = post.get_field('info_proxecto_ficha_grupo_cliente') %}
+{% set tipo = post.get_field('info_proxecto_ficha_grupo_tipo_proxecto') %}
+{% set destacado = post.get_field('texto_destacado') %}
+{% set videos = post.get_field('lista_videos') %}
+{% set creditos = post.get_field('creditos_maiores') %}
+{% set galeria = post.get_field('galeria_de_imaxes') %}
+{% set ficha = post.get_field('ficha_tecnica') %}
+
+	<div class="content-wrapper">
+		<article class="post-type-{{post.post_type}}" 
+		id="post-{{post.ID}}">
+			<div class="top-nav-proyecto fixed">
+
+
+
+
+	<a class="close" href="../">{{ __('Pechar', 'proxecto') }}</a></div>
+			<!-- Cabecera -->
+			<section class="cabecera-proyecto fixed" style="background-image:url('{{TimberImage(imaxe).src('omen-cabeceira')}}');">
+				<div class="mask"></div>
+		        <h1 class="titulo-proyecto">{{post.title}}</h1>
+				<div class="info-proyecto font25">
+
+					{% if director %}
+		        		<span class="director">{{director.name}}</span>
+		        	{% endif %}
+		        	{% if estado %}
+		        		<span class="estado">{{estado}}</span>
+		        	{% endif %}
+		        	{% if ano %}
+		        		<span class="ano">{{ano}}</span>
+		        	{% endif %}
+		        	{% if cliente %}
+			        	{% for item_cliente in cliente %}
+			        	<span class="cliente">{{item_cliente.name}}</span>
+			        	{% endfor %}
+		        	{% endif %}
+		        	{% if tipo %}
+		        	<span class="tipo-proxecto">{{tipo.name}}</span>
+		        	{% endif %}
+
+			  	</div>
+		    </section>
+
+			<section class="container" id="content">
+
+				{% if destacado %}
+				<!-- Sinopse -->
+			    <article class="texto-proxecto">
+			    	<div class="container">
+			    		<div class="row">
+			            	<h2>{{destacado}}</h2>
+			            </div>
+			      </div>
+		        </article>
+		        {% endif %}
+
+				{% if videos %}
+		        <!-- Videos -->
+		        <article class="videos-proxecto">
+		        	<div class="container">
+		        		<div class="row">
+			            	<ul class="col-12">
+								{% for item in videos %}
+				            		<li>
+					             		{% if item.embed_video %} 
+					             			<p class="titulo-video">{{item.titulo_video}}</p>
+					             		{% endif %}
+					              		{{item.embed_video}}
+					              	</li>
+	          				    {% endfor %}
+			            	</ul>
+			            </div>
+		          </div>
+		        </article>
+				{% endif %}
+
+				<!-- Creditos -->
+		        <article class="creditos">
+		        	<div class="container">
+		        		<div class="row">
+				          	{% if creditos %}
+				            <ul class="col-sm-6 col-xl-6">
+								{% for item in creditos %}
+				              	<li>
+				              		<span class="cargo font15">
+										{{item.maiores_cargo}}
+				              		</span>
+				              		<span class="persoa">
+										{{item.maiores_persoa}}
+				              		</span>
+								</li>
+								{% endfor %}
+							</ul>
+							{% endif %}
+							{% if ficha %}
+							<ul class="col-sm-5 col-xl-5 offset-xl-1 offset-sm-1 margin20">
+								{% for item in ficha %}
+				              	<li>
+				              		<span class="cargo font15">
+										{{item.titulo_ficha}}
+				              		</span>
+				              		<span class="persoa">
+										{{item.descripcion_ficha}}
+				              		</span>
+								</li>
+								{% endfor %}
+							</ul>
+							{% endif %}
+						</div>
+			          </div>
+		        </article>
+		        
+
+				{% if galeria %}
+		        <!-- Galeria de proxecto -->
+		          <article class="galeria-proyecto">
+		          	<div class="container">
+						<div class="row">
+							{% for image in galeria %}
+								<img class="lazy" src="" data-src="{{ TimberImage(image).src('large') }}" data-src-small="{{ TimberImage(image).src('medium') }}"/>
+							{% endfor %}
+						</div>
+					</div>
+					</article>
+		        
+		        {% endif %}
+
+
+		    </section><!-- /content -->
+
+		</article>
+	</div><!-- /content-wrapper -->
+{% endblock %}
+

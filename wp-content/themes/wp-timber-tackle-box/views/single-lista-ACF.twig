@@ -1,0 +1,42 @@
+			<ul class="list-terms">
+			{% for term in post.terms('categoria_proxecto') %}
+			    <li class="term-item"><a href="{{term.link}}">{{term.name}}</a></li>
+			{% endfor %}
+			</ul>
+
+			<!-- Info proxecto -->
+			<p>Director:{{post.get_field('info_proxecto_ficha_grupo_director').name}}</p>
+			<p>Tipo proxecto:{{post.get_field('info_proxecto_ficha_grupo_tipo_proxecto').name}}</p>
+			<p>Ano:{{post.get_field('info_proxecto_ficha_grupo_ano')}}</p>
+    		<p>Cliente:{{post.get_field('info_proxecto_ficha_grupo_cliente').name}}</p>
+
+			<!-- Creditos -->
+			<p>Sinopse:{{post.get_field('texto_destacado')}}</p>
+
+			<!-- Imaxe Fondo -->
+			<img src="{{TimberImage(post.get_field('imaxe_fondo')).src('medium')}}" />
+
+    		<!-- Creditos -->
+			<div class="my-list">
+			    {% for item in post.get_field('creditos_maiores') %}
+			        <div class="item">
+			            <h4>Cargo: {{item.maiores_cargo}}</h4>
+			            <h6>Persoa: {{item.maiores_persoa}}</h6>
+			        </div>
+			    {% endfor %}
+			</div>
+
+    		<!-- Videos -->
+			<div class="my-list">
+			    {% for item in post.get_field('lista_videos') %}
+			        <div class="item">
+			            <h4>Titulo video: {{item.titulo_video}}</h4>
+			            <h6>Embed video: {{item.embed_video}}</h6>
+			        </div>
+			    {% endfor %}
+			</div>
+
+			<!-- Galeria de proxecto -->
+			{% for image in post.get_field('galeria_de_imaxes') %}
+	    		<img src="{{ TimberImage(image) }}" />
+			{% endfor %}

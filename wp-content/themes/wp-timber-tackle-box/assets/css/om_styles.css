@@ -1,0 +1,779 @@
+@charset "UTF-8";
+/*!
+Theme Name: Abhyanga Ioga
+Theme URI: http://underscores.me/
+Author: Iago Barreiro
+Author URI: http://underscores.me/
+Description: Description
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: abhyanga-ioga
+Tags:
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+Abhyanga Ioga is based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
+*/
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Normalize
+# Typography
+# Elements
+# Forms
+# Navigation
+  ## Links
+  ## Menus
+# Accessibility
+# Alignments
+# Clearings
+# Widgets
+# Content
+  ## Posts and pages
+  ## Comments
+# Infinite scroll
+# Media
+  ## Captions
+  ## Galleries
+--------------------------------------------------------------*/
+/****************
+Colors
+****************/
+/****************
+Estructura
+****************/
+/*--------------------------------------------------------------
+# Normalize
+--------------------------------------------------------------*/
+@import url("https://fonts.googleapis.com/css?family=Chivo");
+html {
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%; }
+
+body {
+  margin: 0; }
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block; }
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  vertical-align: baseline; }
+
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+[hidden],
+template {
+  display: none; }
+
+a {
+  background-color: transparent; }
+
+a:active,
+a:hover {
+  outline: 0; }
+
+abbr[title] {
+  border-bottom: 1px dotted; }
+
+b,
+strong {
+  font-weight: bold; }
+
+dfn {
+  font-style: italic; }
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0; }
+
+mark {
+  background: #ff0;
+  color: #000; }
+
+small {
+  font-size: 80%; }
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sup {
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em; }
+
+img {
+  border: 0; }
+
+svg:not(:root) {
+  overflow: hidden; }
+
+figure {
+  margin: 1em 40px; }
+
+hr {
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0; }
+
+pre {
+  overflow: auto; }
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em; }
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0; }
+
+button {
+  overflow: visible; }
+
+button,
+select {
+  text-transform: none; }
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer; }
+
+button[disabled],
+html input[disabled] {
+  cursor: default; }
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+input {
+  line-height: normal; }
+
+input[type="checkbox"],
+input[type="radio"] {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0; }
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto; }
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em; }
+
+legend {
+  border: 0;
+  padding: 0; }
+
+textarea {
+  overflow: auto; }
+
+optgroup {
+  font-weight: bold; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+td,
+th {
+  padding: 0; }
+
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased; }
+
+/****************
+Tipografía
+****************/
+body,
+button,
+input,
+select,
+textarea {
+  color: #fff;
+  font-family: "Chivo", sans-serif;
+  font-size: 24px;
+  font-size: 1.5rem;
+  line-height: 1.1; }
+
+button {
+  font-size: 36px;
+  font-size: 2.25rem; }
+
+h1, h2, h3, h4, h5, h6 {
+  clear: both; }
+
+.font15 {
+  font-size: 15px; }
+
+.font20 {
+  font-size: 20px; }
+
+.font25 {
+  font-size: 25px; }
+
+.font30 {
+  font-size: 25px; }
+
+/*--------------------------------------------------------------
+# Elements
+--------------------------------------------------------------*/
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+*,
+*:before,
+*:after {
+  /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit; }
+
+body {
+  background: #000;
+  /* Fallback for when there is no custom background color defined. */ }
+
+blockquote, q {
+  quotes: "" ""; }
+  blockquote:before, blockquote:after, q:before, q:after {
+    content: ""; }
+
+hr {
+  background-color: #ccc;
+  border: 0;
+  height: 1px;
+  margin-bottom: 1.5em; }
+
+ul, ol {
+  margin: 0; }
+
+ul {
+  list-style: none;
+  padding: 0 !important; }
+
+ol {
+  list-style: decimal; }
+
+li > ul,
+li > ol {
+  margin-bottom: 0;
+  margin-left: 0; }
+
+dt {
+  font-weight: bold; }
+
+dd {
+  margin: 0 1.5em 1.5em; }
+
+img {
+  /*height: auto;  Make sure images are scaled correctly. */
+  max-width: 100%;
+  /* Adhere to container width. */ }
+
+table {
+  margin: 0 0 1.5em;
+  width: 100%; }
+
+/*--------------------------------------------------------------
+# Layout
+--------------------------------------------------------------*/
+/* Layout */
+/* content */
+.container-fluid {
+  clear: both; }
+
+.logo {
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  margin: 50px 0;
+  text-align: center; }
+
+.cabecera, #about, #projects {
+  margin-bottom: 300px; }
+  .cabecera h2, #about h2, #projects h2 {
+    text-align: left; }
+
+.cabecera-proyecto {
+  z-index: 3000; }
+
+.cabecera-proyecto, .fotos ul li {
+  width: 100%;
+  height: 800px;
+  background-image: url("../images/nothing.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center; }
+
+.fotos ul li {
+  margin-bottom: 100px; }
+
+.myboots.paxina-proxecto {
+  background-color: #4B0305; }
+
+.fora.paxina-proxecto {
+  background-color: #75839E; }
+
+.wrapper {
+  z-index: 3000;
+  position: relative; }
+
+.cabecera-proyecto {
+  padding-left: 100px;
+  padding-top: 10px;
+  padding-right: 10px;
+  z-index: 3000; }
+
+.cabecera-proyecto h1 {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%); }
+
+.info-proyecto {
+  bottom: 50px;
+  position: absolute; }
+  .info-proyecto span {
+    margin-right: 30px; }
+
+.close-proyecto {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 1; }
+
+/* navigation */
+.navbar {
+  float: left !important; }
+
+nav, .filtro-proyectos {
+  content: "";
+  display: table;
+  table-layout: fixed;
+  width: 100%; }
+  nav ul li, .filtro-proyectos ul li {
+    display: inline;
+    margin-right: 3px; }
+  nav .lang, nav .close, .filtro-proyectos .lang, .filtro-proyectos .close {
+    float: right; }
+
+.off {
+  opacity: .2 !important; }
+
+.grid-proyecto .proyecto {
+  margin-bottom: 50px; }
+
+.grid-proyecto .proyecto span{
+  display: block;
+}
+
+.filtro-proyectos {
+  text-align: center;
+ }
+
+.sticky{
+  padding-top: 20px;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+}
+
+.sticky.is-sticky {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 5000;
+
+   }
+
+#content {
+  z-index: 5100;
+  position: relative; }
+
+.titulo-seccion img {
+  width: 100%; }
+
+#logo_outline {
+  -webkit-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s;
+  -webkit-transform-origin: 50% 50% !important;
+  -ms-transform-origin: 50% 50% !important;
+  transform-origin: 50% 50% !important;
+  cursor: pointer;
+  -webkit-transition: "0.5s";
+  -o-transition: "0.5s";
+  transition: "0.5s";
+  opacity: 0; }
+
+.cabecera {
+  width: 100%;
+  background-image: url("../images/fondo-reel.jpg");
+  background-repeat: no-repeat;
+  background-size: 75%;
+  background-position: center center;
+  opacity: 0; }
+
+.texto-proxecto p {
+  text-align: center; }
+
+.fixed {
+  position: fixed !important; }
+
+.b-lazy {
+  -webkit-transition: opacity 500ms ease-in-out;
+  -moz-transition: opacity 500ms ease-in-out;
+  -o-transition: opacity 500ms ease-in-out;
+  transition: opacity 500ms ease-in-out;
+  max-width: 100%;
+  opacity: 0; }
+
+.b-lazy.b-loaded {
+  opacity: 1; }
+
+.galeria-proyecto img {
+  margin-bottom: 100px;
+  width: 100%;
+  max-height: 1000px;
+  -o-object-fit: contain;
+  object-fit: contain; }
+
+.texto-proxecto {
+  margin-bottom: 100px; }
+
+.creditos {
+  margin-bottom: 100px; }
+
+.paxina-proxecto .plyr {
+  margin-bottom: 100px; }
+
+.top-nav-proyecto {
+  z-index: 3001 !important;
+  position: absolute;
+  right: 5px;
+  top: 5px; }
+
+/*--------------------------------------------------------------
+# Navigation
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Links
+--------------------------------------------------------------*/
+a {
+  color: #fff;
+  text-decoration: none; }
+  a:visited {
+    color: #fff; }
+  a:hover, a:focus, a:active {
+    color: #fff; }
+  a:focus {
+    outline: thin dotted; }
+  a:hover, a:active {
+    outline: 0; }
+
+.filtro-proyectos a:hover,.filtro-proyectos .active a {
+  border-bottom: 2px solid white; }
+
+/*--------------------------------------------------------------
+# Media
+--------------------------------------------------------------*/
+.page-content .wp-smiley,
+.entry-content .wp-smiley,
+.comment-content .wp-smiley {
+  border: none;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding: 0; }
+
+/* Make sure embeds and iframes fit their containers. */
+embed,
+iframe,
+object {
+  max-width: 100%; }
+
+.project-list>article{
+  position: absolute;
+  z-index: 10000;
+  top: 0;
+  left:0;
+  width: 100%;
+}
+.hidden{
+  display:none;
+}
+.visible{
+  display: block;
+}
+
+.content-wrapper{
+  padding-bottom: 100px;
+}
+
+.grid-proyecto img{
+  margin-bottom: 10px;
+  width: 100%;
+}
+.titulo-video{
+  text-align: center;
+  margin-bottom: 0;
+  margin-top: 20px;
+}
+.creditos li{
+  margin-bottom: 10px;
+}
+.navbar-brand{
+  font-size: 1rem;
+}
+
+/*
+.grid-proyecto .proyecto{
+  overflow: hidden;
+}
+
+.tease-proxectos>div{
+  width: 100%;
+  height: 100%;
+}
+
+a.link-proxecto{
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+
+.meta-proxecto {
+    height: 100%;
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    padding-left: 6px;
+    padding-top: 1px;
+    opacity: 0 !important;
+}
+
+a.link-proxecto:hover .meta-proxecto{
+  opacity: 1 !important;
+}
+*/
+
+.cliente-proxecto{
+  opacity: .3;
+}
+
+.cargo{
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: block;
+}
+
+.persoa{
+  margin-bottom: 15px;
+  display: block;
+}
+
+.margin20{
+  margin-bottom: 20px;
+}
+.margin50{
+  margin-bottom: 50px;
+}
+
+.current-menu-item a{
+  border-bottom: 2px solid white;
+}
+
+.nav-item a:hover{
+  border-bottom: 2px solid white;
+}
+
+.proyecto{
+    transition: opacity .25s ease-in-out;
+   -moz-transition: opacity .25s ease-in-out;
+   -webkit-transition: opacity .25s ease-in-out;
+}
+
+.proyecto:hover{
+  opacity: .8 !important;
+}
+
+.sticky{
+  background-color: black;
+}
+
+ul.nav-items{
+  margin-bottom: 2px !important;
+}
+
+.site-header {
+    height: 110px;
+}
+
+.info .thumbnail-info{
+  margin-top: 100px;
+}
+
+.mail,.telefono,.redes .nav-item{
+  display: block;
+}
+
+.redes{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.thumbnail-info img{
+  width: 100%;
+}
+
+h2.cliente span.web{
+  font-size: .4em;
+}
+h2.cliente span.web a:hover{
+  border-bottom: 2px solid white;
+}
+
+  img[usemap] {
+    border: none;
+    height: auto;
+    max-width: 100%;
+  }
+
+@media (max-width: 1024px) {
+  h1{
+    font-size: 7rem !important;
+  }
+  h2{
+    font-size: 3rem !important;
+  }
+  .cabecera-proyecto{
+    padding-left: 60px !important;
+  } 
+  .galeria-proyecto img{
+    margin-bottom: 50px !important;
+  }
+  .texto-proxecto{
+    margin-bottom: 50px !important;
+  }
+  iframe{
+    height: 500px;
+  }}
+
+@media (max-width: 768px) {
+  h1{
+    font-size: 5rem !important;
+  }
+  h2{
+    font-size: 2rem !important;
+  }
+  .cabecera-proyecto{
+    padding-left: 40px !important;
+  } 
+  .galeria-proyecto img{
+    margin-bottom: 50px !important;
+  }
+  .texto-proxecto{
+    margin-bottom: 50px !important;
+  }
+  iframe{
+    height: 500px;
+  }
+
+  }
+
+
+@media (max-width: 560px) {
+  h1{
+    font-size: 4rem !important;
+  }
+  h2{
+    font-size: 1.5rem !important;
+  }
+  .cabecera-proyecto{
+    padding-left: 20px !important;
+  } 
+  .galeria-proyecto img{
+    margin-bottom: 50px !important;
+  }
+  .texto-proxecto{
+    margin-bottom: 50px !important;
+  }
+  iframe{
+    height: 300px;
+  }
+
+  }
+
+
+
+::selection {
+  background: rgba(255, 255, 255, 0.996); /* WebKit/Blink Browsers */
+  color: #000;
+}
+::-moz-selection {
+  background: rgba(255, 255, 255, 0.996); /* Gecko Browsers */
+  color: #000;
+}
+
+#cluetip {
+  z-index: 4000 !important;
+}
+
+
+
+
